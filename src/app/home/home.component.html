@@ -1,5 +1,6 @@
 <header>
     <div class="logo-div">
+        
         <div class="logo">
             <img src="../../assets/logo.svg" alt="Main logo">
         </div>
@@ -11,6 +12,9 @@
     </div>
 </header>
 <div class="container">
+    <div class="animation-div" *ngIf="isLoading">
+        <ng-lottie class="animation" [options]="options"></ng-lottie>
+    </div>
     <div class="right-col">
         <div class="newtask-div">
             <input (keydown.enter)="addTask()" name="newTaskTitle" [(ngModel)]="newTaskTitle" type="task"

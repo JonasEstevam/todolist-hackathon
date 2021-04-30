@@ -21,7 +21,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha</label>
-                    <input [(ngModel)]="user.password" name="password" type="password" class="form-control"
+                    <input (keydown.enter)="login()" [(ngModel)]="user.password" name="password" type="password" class="form-control"
                         id="password" placeholder="Sua senha...">
                 </div>
             </form>

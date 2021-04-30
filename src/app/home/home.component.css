@@ -35,6 +35,15 @@ li {
   word-wrap: break-word;
   max-width: 500px;
 }
+.animation-div {
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+}
 .left-list {
   max-width: 180px;
   word-wrap: break-word;

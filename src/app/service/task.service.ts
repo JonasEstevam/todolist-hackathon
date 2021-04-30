@@ -9,12 +9,6 @@ import { environment } from 'src/environments/environment';
 })
 export class TaskService {
   private readonly API = `${environment.API}/task`;
-  private token = this.localStorageService.getTokenFromLocalStorage();
-  private httpOptions = {
-    headers: new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
-    }),
-  };
 
   constructor(
     private localStorageService: LocalStorageService,
@@ -22,10 +16,24 @@ export class TaskService {
   ) {}
 
   update(id: string, update: object) {
-    return this.$http.put(`${this.API}/${id}`, update, this.httpOptions);
+    const token = this.localStorageService.getTokenFromLocalStorage();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    };
+    return this.$http.put(`${this.API}/${id}`, update, httpOptions);
   }
 
   create(title: string) {
-    return this.$http.post(`${this.API}`, { title }, this.httpOptions);
+    const token = this.localStorageService.getTokenFromLocalStorage();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    };
+    console.log(httpOptions);
+
+    return this.$http.post(`${this.API}`, { title }, httpOptions);
   }
 }

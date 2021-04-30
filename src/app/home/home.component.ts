@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnimationOptions } from 'ngx-lottie';
 import { User } from '../objects/User';
 import { Task } from '../objects/Task';
 import { LocalStorageService } from '../service/local-storage.service';
@@ -13,6 +14,9 @@ import { TaskService } from '../service/task.service';
 })
 export class HomeComponent implements OnInit {
   user: User;
+  options: AnimationOptions = {
+    path: '../../assets/loading.json',
+  };
   completedTasks = [];
   notCompletedTasks = [];
   isLoading = true;
@@ -25,6 +29,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.checkIsLoggedIn();
   }
 

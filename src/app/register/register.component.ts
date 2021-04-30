@@ -71,7 +71,9 @@ export class RegisterComponent implements OnInit {
   checkIsLoggedIn() {
     const token = this.localStorageService.getTokenFromLocalStorage();
     if (token) {
-      this.router.navigate(['/']);
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 10);
     }
   }
 
