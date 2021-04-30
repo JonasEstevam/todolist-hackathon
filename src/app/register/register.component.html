@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="alert-container" *ngIf="haveError">
+        <div class="alert alert-warning" role="alert">
+            {{errorText}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm left-div">
+
+            <div class="logo-div">
+                <img id="logo" src="../../assets/logo.svg" alt="Main logo">
+            </div>
+            <h1 style="font-weight: 600">Criar conta</h1>
+
+            <form action="" class="login-form">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nome de usuário</label>
+                    <input name="username" type="text" class="form-control" id="username"
+                        placeholder="Seu nome de usuário..." [(ngModel)]="user.username">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <input name="password" type="password" class="form-control" id="password" placeholder="Sua senha..."
+                        [(ngModel)]="user.password">
+                </div>
+            </form>
+            <button type="button" class="btn btn-light" (click)="create()">Criar</button>
+            <a (click)="goToLogin()">Já tem uma conta? Faça login</a>
+
+        </div>
+        <div class="col-sm right-div">
+            <div class="animation-div">
+                <ng-lottie class="animation" [options]="options"></ng-lottie>
+            </div>
+            <p style="color:black; font-weight: 300;">Feito com o <span style="color: red">❤</span> por <a
+                    href="https://www.linkedin.com/in/jonas-estevam-b71a32159/" target="_blank">Jonas
+                    Estevam</a>
+            </p>
+        </div>
+    </div>
+</div>
